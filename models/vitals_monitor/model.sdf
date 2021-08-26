@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="vitals_monitor">
+    <static>true</static>
+    <link name="vitals_monitor">
+      <collision name="vitals_monitor">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://vitals_monitor/meshes/model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="vitals_monitor_mesh">
+	  <cast_shadows>true</cast_shadows>
+        <geometry>
+          <mesh>
+	        <uri>model://vitals_monitor/meshes/model.dae</uri>
+	      </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

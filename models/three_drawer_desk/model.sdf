@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="three_drawer_desk">
+    <static>true</static>
+    <link name="three_drawer_desk">
+      <collision name="three_drawer_desk">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://three_drawer_desk/meshes/model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="three_drawer_desk_mesh">
+	  <cast_shadows>true</cast_shadows>
+        <geometry>
+          <mesh>
+	        <uri>model://three_drawer_desk/meshes/model.dae</uri>
+	      </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

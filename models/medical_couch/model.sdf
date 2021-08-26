@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="medical_couch">
+    <static>true</static>
+    <link name="medical_couch">
+      <collision name="medical_couch">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://medical_couch/meshes/model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="medical_couch_mesh">
+	  <cast_shadows>true</cast_shadows>
+        <geometry>
+          <mesh>
+	        <uri>model://medical_couch/meshes/model.dae</uri>
+	      </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

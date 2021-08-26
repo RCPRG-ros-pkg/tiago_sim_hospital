@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="hospital_bed">
+    <static>true</static>
+    <link name="hospital_bed">
+      <collision name="hospital_bed">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://hospital_bed/meshes/model.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="hospital_bed_mesh">
+	  <cast_shadows>true</cast_shadows>
+        <geometry>
+          <mesh>
+	        <uri>model://hospital_bed/meshes/model.dae</uri>
+	      </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
