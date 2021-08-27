@@ -21,6 +21,8 @@ Oryginalne modele stworzone w programie Blender znajdują się w katalogu
 
 ## Używanie
 
+### Mapowanie
+
 Do mapowania świata zawartego w paczce należy uruchomić launch:
 ```
 /launch/tiago_mapping_hospital_v1.launch
@@ -32,4 +34,11 @@ rosrun key_teleop key_teleop.py
 Stworzoną przez gmapping mapę można zapisać uruchamiając komendę:
 ```
 rosrun map_server map_saver -f <target_directory/map_name>
+```
+
+### Nawigacja
+
+Do przeprowadzania nawigacji robotem w środowisku należy uruchomić:
+```
+/launch/tiago_navigation_hospital_v1.launch
 ```
