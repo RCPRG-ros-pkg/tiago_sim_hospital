@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="door_90">
+    <static>true</static>
+    <link name="door_90">
+      <collision name="door_90">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://door_90/meshes/test.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="door_90_mesh">
+	  <cast_shadows>true</cast_shadows>
+        <geometry>
+          <mesh>
+	        <uri>model://door_90/meshes/test.dae</uri>
+	      </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

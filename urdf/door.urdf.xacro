@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="room_door">
+
+  <link name="base_link">
+     <inertial>
+      <mass value="1000.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size = ".04 .9 .001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size = ".04 .9 .001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_board">
+     <inertial>
+      <mass value="1000.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 1" rpy="0 0 0" />
+      <geometry>
+        <box size = ".04 .04 2" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 1" rpy="0 0 0" />
+      <geometry>
+        <box size = ".04 .04 2" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="door">
+     <inertial>
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0.43 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 .9 1.99"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0.43 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.04 .9 1.99"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_to_left" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_board"/>
+    <origin xyz="0 -.43 0"/>
+  </joint>
+
+  <joint name="door_hinge" type="revolute">
+    <parent link="left_board"/>
+    <child link="door"/>
+    <origin xyz="0 0 1.005"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="100"/>
+    <dynamics damping="1"/>
+  </joint>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+</robot>

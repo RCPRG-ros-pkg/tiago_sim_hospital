@@ -137,4 +137,10 @@
   <!-- We have to set amcl params this ugly way! -->
   <node name="amcl_params_update" pkg="tiago_sim_integration" type="amcl_params_update.py" output="screen" />
 
+  <!-- spawn door -->
+  <arg name="door_model" default="$(find tiago_sim_hospital)/urdf/door.urdf.xacro"/>
+  <param name="door_desc" command="$(find xacro)/xacro $(arg door_model)" />
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        args="-x -6.275 -y -2 -z 0.0 -unpause -urdf -model door -param door_desc" respawn="false" output="screen" />
+
 </launch>
