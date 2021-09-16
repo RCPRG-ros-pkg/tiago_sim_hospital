@@ -1,82 +1,122 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="room_door">
 
-  <link name="base_link">
-     <inertial>
-      <mass value="1000.0" />
+  <xacro:arg name = "opening" default="left"/>
+  <xacro:arg name = "width" default=".9"/>
+  <xacro:property name = "hole_width" value = "$(arg width)"/>
+  <xacro:property name = "hole_height" value = "2"/>
+  <xacro:property name = "door_thickness" value = ".01"/>
+  <xacro:property name = "upper_border_width" value = ".05"/>
+  <xacro:property name = "side_border_width" value = ".04"/>
+  <xacro:property name = "floor_crack" value = ".01"/>
+  <xacro:property name = "full_pi" value = "3.14"/>
+
+  <xacro:macro name = "default_inertia" params = "mass">
+    <inertial>
+      <mass value="${mass}" />
       <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
     </inertial>
+  </xacro:macro>
+
+  <link name = "base_link"/>
+
+  <joint name = "fixed" type = "fixed">
+    <parent link = "base_link"/>
+    <child link = "top_post"/>
+    <origin xyz = "0 0 ${hole_height + upper_border_width / 2}"/>
+  </joint>
+
+  <link name="top_post">
+    <xacro:default_inertia mass = "1"/>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size = ".04 .9 .001" />
+        <box size = "${door_thickness} ${hole_width + upper_border_width * 2} ${upper_border_width}" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <box size = ".04 .9 .001" />
+        <box size = "${door_thickness} ${hole_width + upper_border_width * 2} ${upper_border_width}" />
       </geometry>
     </collision>
   </link>
 
-  <link name="left_board">
-     <inertial>
-      <mass value="1000.0" />
-      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0 1" rpy="0 0 0" />
-      <geometry>
-        <box size = ".04 .04 2" />
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0 1" rpy="0 0 0" />
-      <geometry>
-        <box size = ".04 .04 2" />
-      </geometry>
-    </collision>
-  </link>
+  <gazebo reference="top_post">
+    <material>Gazebo/Black</material>
+  </gazebo>
 
-  <link name="door">
-     <inertial>
-      <mass value="1.0" />
-      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
-    </inertial>
-    <visual>
-      <origin xyz="0 0.43 0" rpy="0 0 0" />
-      <geometry>
-        <box size="0.04 .9 1.99"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="0 0.43 0" rpy="0 0 0" />
-      <geometry>
-        <box size="0.04 .9 1.99"/>
-      </geometry>
-    </collision>
-  </link>
+  <xacro:macro name = "post" params = "direction">
+    <link name="${direction}_post">
+      <xacro:default_inertia mass = "1000"/>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size = "${door_thickness} ${side_border_width} ${hole_height}" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size = "${door_thickness} ${side_border_width} ${hole_height}" />
+        </geometry>
+      </collision>
+    </link>
 
-  <joint name="base_to_left" type="fixed">
-    <parent link="base_link"/>
-    <child link="left_board"/>
-    <origin xyz="0 -.43 0"/>
-  </joint>
+    <gazebo reference="${direction}_post">
+      <material>Gazebo/Black</material>
+    </gazebo>
 
-  <joint name="door_hinge" type="revolute">
-    <parent link="left_board"/>
-    <child link="door"/>
-    <origin xyz="0 0 1.005"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="100"/>
-    <dynamics damping="1"/>
-  </joint>
+    <xacro:property name = "dir_multiplier" value = "${-1 if direction == 'left' else 1}"/>
+    <joint name="${direction}_post_to_base" type="fixed">
+      <parent link="top_post"/>
+      <child link="${direction}_post"/>
+      <origin xyz="0 ${ dir_multiplier * (hole_width / 2 + upper_border_width - side_border_width / 2)} ${- upper_border_width / 2 - hole_height / 2}"/>
+    </joint>
+  </xacro:macro>
 
-  <gazebo>
+  <xacro:post direction = "left"/>
+  <xacro:post direction = "right"/>
+
+  <xacro:macro name = "door" params = "opening_direction">
+    <xacro:property name = "dir_multiplier" value = "${1 if opening_direction == 'left' else -1}"/>
+
+    <link name="door_front">
+      <xacro:default_inertia mass = "1"/>
+      <visual>
+        <origin xyz="${- door_thickness / 2} ${dir_multiplier * (hole_width / 2 + upper_border_width - side_border_width)} ${floor_crack / 2}" rpy="0 0 0" />
+        <geometry>
+          <box size = "${door_thickness} ${hole_width + 2 * (upper_border_width - side_border_width)} ${hole_height - floor_crack}" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="${- door_thickness / 2} ${dir_multiplier * (hole_width / 2 + upper_border_width - side_border_width)} ${floor_crack / 2}" rpy="0 0 0" />
+        <geometry>
+          <box size = "${door_thickness} ${hole_width + 2 * (upper_border_width - side_border_width)} ${hole_height - floor_crack}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <gazebo reference="door_front">
+      <material>Gazebo/Orange</material>
+    </gazebo>
+
+    <joint name="door_front_to_${opening_direction}_post" type="revolute">
+      <parent link="${opening_direction}_post"/>
+      <child link="door_front"/>
+      <origin xyz="${door_thickness / 2} ${dir_multiplier * side_border_width / 2} 0"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="1000.0" lower="${- full_pi if opening_direction == 'left' else 0}" upper="${0 if opening_direction == 'left' else full_pi}" velocity="100"/>
+      <dynamics damping=".5"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:door opening_direction = "$(arg opening)"/>
+
+<!--   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/</robotNamespace>
     </plugin>
-  </gazebo>
+  </gazebo> -->
 
 </robot>
