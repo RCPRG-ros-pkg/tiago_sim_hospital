@@ -1,0 +1,389 @@
+material Room/S1
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_s1.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/S1
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_s1.png
+      }
+    }
+  }
+}
+
+material Room/S2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_s2.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/S2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_s2.png
+      }
+    }
+  }
+}
+
+material Room/S3
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_s3.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/S3
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_s3.png
+      }
+    }
+  }
+}
+
+material Room/S4
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_s4.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/S4
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_s4.png
+      }
+    }
+  }
+}
+
+material Room/G1
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_g1.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/G1
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_g1.png
+      }
+    }
+  }
+}
+
+material Room/G2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_g2.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/G2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_g2.png
+      }
+    }
+  }
+}
+
+material Room/Canteen
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_canteen.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/Canteen
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_canteen.png
+      }
+    }
+  }
+}
+
+material Room/Kitchen
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_kitchen.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/Kitchen
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_kitchen.png
+      }
+    }
+  }
+}
+
+material Room/Nurse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_nurse.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/Nurse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_nurse.png
+      }
+    }
+  }
+}
+
+material Room/Office1
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_office1.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/Office1
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_office1.png
+      }
+    }
+  }
+}
+
+material Room/Office2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_office2.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/Office2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_office2.png
+      }
+    }
+  }
+}
+
+material Room/Reception
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_reception.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/Reception
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_reception.png
+      }
+    }
+  }
+}
+
+material Room/Toilet
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_toilet.jpg
+      }
+    }
+  }
+}
+
+material QR_Room/Toilet
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_Toilet.png
+      }
+    }
+  }
+}

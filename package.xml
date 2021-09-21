@@ -1,6 +1,6 @@
 <package format="2">
   <name>tiago_sim_hospital</name>
-  <version>0.0.1</version>
+  <version>0.1.1</version>
   <description>
     This package contains simulation for tiago robot in medical environment.
   </description>
@@ -12,6 +12,5 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <exec_depend>tiago_2dnav_gazebo</exec_depend>
-  <exec_depend>ros_actor_cmd_vel_plugin</exec_depend>
   <exec_depend>tiago_sim_integration</exec_depend>
 </package>

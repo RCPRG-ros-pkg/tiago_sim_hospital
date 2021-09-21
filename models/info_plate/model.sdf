@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="info_plate">
+    <static>true</static>
+    <link name="info_plate">
+      <collision name="info_plate">
+        <pose>0 0 .1485 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>
+              0.001 .21 .297
+            </size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="info_plate_upper">
+        <pose>0 0 .2485 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>
+              0.001 .21 .097
+            </size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://info_plate/materials/scripts</uri>
+            <uri>model://info_plate/materials/textures</uri>
+            <name>Room/S1</name>
+            <name><!-- Gazebo/Red --></name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="info_plate_lower">
+        <pose>0 0 .105 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>
+              0.001 .21 .21
+            </size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://info_plate/materials/scripts</uri>
+            <uri>model://info_plate/materials/textures</uri>
+            <name>QR_Room/S1</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

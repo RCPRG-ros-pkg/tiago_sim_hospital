@@ -21,7 +21,7 @@ project(tiago_sim_hospital)
 
   # Declare that this catkin package's runtime dependencies
   catkin_package(
-   CATKIN_DEPENDS tiago_2dnav_gazebo ros_actor_cmd_vel_plugin tiago_sim_integration
+   CATKIN_DEPENDS tiago_2dnav_gazebo tiago_sim_integration
   )
 
   # define executable using MyMessage1 etc.
