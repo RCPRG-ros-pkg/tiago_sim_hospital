@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <arg name="robot"  default="iron"/>
+  <arg name="robot"  default="titanium"/>
   <arg name="arm"  default="$(eval {'iron': false}.get(arg('robot'), True))"/>
   <arg name="end_effector"  default="$(eval {'iron': 'false', 'steel': 'pal-gripper', 'titanium': 'pal-hey5'}.get(arg('robot'), 'pal-gripper'))"/>
   <arg name="ft_sensor"  default="$(eval {'titanium': 'schunk-ft'}.get(arg('robot'), 'false'))"/>
@@ -15,8 +15,9 @@
   <arg name="localization"   default="amcl"/>
   <arg name="gzpose"   default="-x -8.0 -y -4.0 -z 0 -R 0.0 -P 0.0 -Y 0.0"/>
   <arg name="tuck_arm"  default="true"/>
-  <arg name="world" default="hospital_v1"/>
-  <arg name="world_map_tf"          default="-8.0 -4.0 0 0 0 0 "/>
+  <arg name="world_version" default="1"/>
+  <arg name="world" default="hospital_v$(arg world_version)"/>
+  <!-- <arg name="world_map_tf"          default="-8.0 -4.0 0 0 0 0 "/> -->
 
   <!-- Due to some bug in tiago simulation (tiago moves very slowly when it should be standing still),
        the amcl localization must be triggered periodically, and some noise must be added to particles. -->
@@ -82,6 +83,9 @@
       <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
       <arg if="$(eval local_planner == 'teb')" name="use_dynamic_footprint" value="true"/>
     </include>
+  
+    <!-- custom pre-recorded motions -->
+    <rosparam file="$(find tiago_sim_hospital)/config/motions/tiago_motions_$(arg robot).yaml" command="load" />
 
     <include file="$(find tiago_2dnav_gazebo)/launch/navigation.launch">
       <arg name="state"          value="localization"/>
