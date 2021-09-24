@@ -1,6 +1,21 @@
 play_motion:
   controllers: [arm_controller, head_controller, torso_controller, hand_controller]
 
+  # joint constraints:
+  # torso_lift_joint: [0, 0.35]
+  # head_1_joint: [-1.24, 1.24]
+  # head_2_joint: [-0.98, 0.72]
+  # arm_1_joint: [0.07, 2.68]
+  # arm_2_joint: [-1.5, 1.02]
+  # arm_3_joint: [-3.46, 1.5]
+  # arm_4_joint: [-0.32, 2.29]
+  # arm_5_joint: [-2.07, 2.07]
+  # arm_6_joint: [-1.39, 1.39]
+  # arm_7_joint: [-2.07,2.07]
+  # hand_index_joint: [-3.05, 6.81]
+  # hand_mrl_joint: [-2.53, 9.25]
+  # hand_thumb_joint: [-2.62, 6.28]
+
   motions:
     fast_home:
       joints: [torso_lift_joint, arm_1_joint,
@@ -17,3 +32,23 @@ play_motion:
         name: fast_home
         usage: tiago_sim_hospital
         description: 'Go home, but fast'
+
+    zero:
+      joints: [torso_lift_joint, head_1_joint, head_2_joint, arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, hand_index_joint, hand_mrl_joint, hand_thumb_joint]
+      points:
+      - positions: [0.0, 0.0, 0.0, 0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        time_from_start: 5.0
+      meta:
+        name: zero
+        usage: tiago_sim_hospital
+        description: 'Set all joints to position 0.'
+
+    middle:
+      joints: [torso_lift_joint, head_1_joint, head_2_joint, arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, hand_index_joint, hand_mrl_joint, hand_thumb_joint]
+      points:
+      - positions: [0.175, 0.0, -0.13, 1.375, -0.24, -0.98, 0.985, 0.0, 0.0, 0.0, 1.88, 3.36, 1.83]
+        time_from_start: 5.0
+      meta:
+        name: middle
+        usage: tiago_sim_hospital
+        description: 'Go to middle position on all joints.'

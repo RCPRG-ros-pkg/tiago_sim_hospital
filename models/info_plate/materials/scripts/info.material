@@ -382,7 +382,37 @@ material QR_Room/Toilet
     {
       texture_unit
       {
-        texture qr_room_Toilet.png
+        texture qr_room_toilet.png
+      }
+    }
+  }
+}
+
+material Room/Bathroom
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture room_bathroom.png
+      }
+    }
+  }
+}
+
+material QR_Room/Bathroom
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture qr_room_bathroom.png
       }
     }
   }
