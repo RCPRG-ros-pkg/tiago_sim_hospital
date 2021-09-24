@@ -397,7 +397,7 @@ material Room/Bathroom
     {
       texture_unit
       {
-        texture room_bathroom.png
+        texture room_bathroom.jpg
       }
     }
   }
