@@ -6,7 +6,7 @@
   <arg name="ft_sensor"  default="$(eval {'titanium': 'schunk-ft'}.get(arg('robot'), 'false'))"/>
   <arg name="laser_model"  default="sick-571"/>
   <arg name="camera_model"  default="orbbec-astra"/>
-  <arg name="world_version" default="1"/>
+  <arg name="world_version" default="2"/>
   <arg name="world" default="hospital_v$(arg world_version)"/>
   <arg name="gzpose"   default="-x -8.0 -y -4.0 -z 0 -R 0.0 -P 0.0 -Y 0.0"/>
   <arg name="rviz"     default="true"/>
