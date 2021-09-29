@@ -127,10 +127,10 @@
         </link>
       </model>
       <model name='chair_clone_1'>
-        <pose frame=''>1.44083 -3.78112 0 0 -0 3.14159</pose>
+        <pose frame=''>0.1 -6.0 0 0 -0 -1.57</pose>
         <scale>1 1 1</scale>
         <link name='chair'>
-          <pose frame=''>1.44083 -3.78112 0 0 -0 3.14159</pose>
+          <pose frame=''>0.1 -6.0 0 0 -0 -1.57</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -3495,7 +3495,7 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <pose frame=''>1.44083 -3.78112 0 0 -0 3.14159</pose>
+      <pose frame=''>0.1 -6.0 0 0 -0 -1.57</pose>
     </model>
     <model name='locker_high'>
       <static>1</static>
@@ -23351,7 +23351,7 @@
     </model>
 
     <!-- ============================= ACTOR =============================== -->
-    <actor name="actor1">
+    <actor name="Greg"> <!-- green -->
       <skin>
         <filename>stand.dae</filename>
         <scale>1.0</scale>
@@ -23379,18 +23379,18 @@
         <scale>1.0</scale>
       </animation>
 
-      <script>
+      <script> <!-- walk around the waiting room -->
 
         <!-- stand in place -->
         <trajectory id="0" type="stand">
           <waypoint>
             <time>0</time>
-            <pose>-8.0 -4.0 0 +0.0 0.0 +0.0</pose>
+            <pose>-8.0 -6.0 0 +0.0 0.0 +0.0</pose>
           </waypoint>
 
           <waypoint>
             <time>5</time>
-            <pose>-8.0 -4.0 0 +0.0 0.0 +0.0</pose>
+            <pose>-8.0 -6.0 0 +0.0 0.0 +0.0</pose>
           </waypoint>
         </trajectory>
 
@@ -23398,12 +23398,12 @@
         <trajectory id="1" type="walk">
           <waypoint>
             <time>0</time>
-            <pose>-8.0 -4.0 0 +0.0 0.0 +0.0</pose>
+            <pose>-8.0 -6.0 0 +0.0 0.0 +0.0</pose>
           </waypoint>
 
           <waypoint>
-            <time>5</time>
-            <pose>-6.0 -4.0 0 +0.0 0.0 +0.0</pose>
+            <time>2</time>
+            <pose>-6.0 -6.0 0 +0.0 0.0 +0.0</pose>
           </waypoint>
         </trajectory>
 
@@ -23411,12 +23411,12 @@
         <trajectory id="2" type="stand">
           <waypoint>
             <time>0</time>
-            <pose>-6.0 -4.0 0 +0.0 0.0 +0.0</pose>
+            <pose>-6.0 -6.0 0 +0.0 0.0 +0.0</pose>
           </waypoint>
 
           <waypoint>
-            <time>5</time>
-            <pose>-6.0 -4.0 0 +0.0 0.0 +3.14</pose>
+            <time>2</time>
+            <pose>-6.0 -6.0 0 +0.0 0.0 +3.14</pose>
           </waypoint>
         </trajectory>
 
@@ -23424,12 +23424,12 @@
         <trajectory id="3" type="walk">
           <waypoint>
             <time>0</time>
-            <pose>-6.0 -4.0 0 +0.0 0.0 +3.14</pose>
+            <pose>-6.0 -6.0 0 +0.0 0.0 +3.14</pose>
           </waypoint>
 
           <waypoint>
-            <time>5</time>
-            <pose>-8.0 -4.0 0 +0.0 0.0 +3.14</pose>
+            <time>2</time>
+            <pose>-8.0 -6.0 0 +0.0 0.0 +3.14</pose>
           </waypoint>
         </trajectory>
 
@@ -23437,12 +23437,328 @@
         <trajectory id="4" type="stand">
           <waypoint>
             <time>0</time>
-            <pose>-8.0 -4.0 0 +0.0 0.0 +3.14</pose>
+            <pose>-8.0 -6.0 0 +0.0 0.0 +3.14</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>2</time>
+            <pose>-8.0 -6.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+        
+      </script>
+
+    </actor>
+
+    <actor name="Ruby"> <!-- red -->
+      <skin>
+        <filename>moonwalk.dae</filename>
+        <scale>1.0</scale>
+      </skin>
+
+      <animation name="stand">
+        <filename>stand.dae</filename>
+        <scale>1.0</scale>
+        <interpolate_x>false</interpolate_x>
+      </animation>
+
+      <animation name="walk">
+        <filename>walk.dae</filename>
+        <scale>1.0</scale>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+
+      <animation name="sitting">
+        <filename>sitting.dae</filename>
+        <scale>1.0</scale>
+      </animation>
+
+      <animation name="stand_up">
+        <filename>stand_up.dae</filename>
+        <scale>1.0</scale>
+      </animation>
+
+      <script> <!-- check on patients -->
+
+        <!-- stand by desk -->
+        <trajectory id="0" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>-0.5 -1.5 0 +0.0 0.0 -1.57</pose>
           </waypoint>
 
           <waypoint>
             <time>5</time>
-            <pose>-8.0 -4.0 0 +0.0 0.0 +0.0</pose>
+            <pose>-0.5 -1.5 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- walk to the wall -->
+        <trajectory id="1" type="walk">
+          <waypoint>
+            <time>0</time>
+            <pose>-0.5 -1.5 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1.5</time>
+            <pose>-0.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- rotate right -->
+        <trajectory id="2" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>-0.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>-0.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- go to s1 -->
+        <trajectory id="3" type="walk">
+          <waypoint>
+            <time>0</time>
+            <pose>-0.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>0.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- rotate, look, rotate -->
+        <trajectory id="4" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>0.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>0.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>4</time>
+            <pose>0.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>5</time>
+            <pose>0.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- go to s2 -->
+        <trajectory id="5" type="walk">
+          <waypoint>
+            <time>0</time>
+            <pose>0.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>3</time>
+            <pose>3.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- rotate, look, rotate -->
+        <trajectory id="6" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>3.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>3.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>4</time>
+            <pose>3.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>5</time>
+            <pose>3.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- go to s3 -->
+        <trajectory id="7" type="walk">
+          <waypoint>
+            <time>0</time>
+            <pose>3.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>3</time>
+            <pose>6.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- rotate, look, rotate -->
+        <trajectory id="8" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>6.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>6.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>4</time>
+            <pose>6.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>5</time>
+            <pose>6.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- go to s4 -->
+        <trajectory id="9" type="walk">
+          <waypoint>
+            <time>0</time>
+            <pose>6.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>3</time>
+            <pose>9.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- rotate, look, rotate -->
+        <trajectory id="10" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>9.5 -3.0 0 +0.0 0.0 +0.0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>9.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>4</time>
+            <pose>9.5 -3.0 0 +0.0 0.0 -1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>6</time>
+            <pose>9.5 -3.0 0 +0.0 0.0 +1.57</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- go to other wall -->
+        <trajectory id="11" type="walk">
+          <waypoint>
+            <time>0</time>
+            <pose>9.5 -3.0 0 +0.0 0.0 +1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1.5</time>
+            <pose>9.5 -1.5 0 +0.0 0.0 +1.57</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- rotate to desk -->
+        <trajectory id="12" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>9.5 -1.5 0 +0.0 0.0 +1.57</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>9.5 -1.5 0 +0.0 0.0 +3.14</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- walk to desk -->
+        <trajectory id="13" type="walk">
+          <waypoint>
+            <time>0</time>
+            <pose>9.5 -1.5 0 +0.0 0.0 +3.14</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>10</time>
+            <pose>-0.5 -1.5 0 +0.0 0.0 +3.14</pose>
+          </waypoint>
+        </trajectory>
+
+        <!-- rotate back -->
+        <trajectory id="14" type="stand">
+          <waypoint>
+            <time>0</time>
+            <pose>-0.5 -1.5 0 +0.0 0.0 +3.14</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>1</time>
+            <pose>-0.5 -1.5 0 +0.0 0.0 +4.71</pose>
+          </waypoint>
+        </trajectory>
+        
+      </script>
+
+    </actor>
+
+    <actor name="Barb"> <!-- blue -->
+      <skin>
+        <filename>talk_b.dae</filename>
+        <scale>1.0</scale>
+      </skin>
+
+      <animation name="stand">
+        <filename>stand.dae</filename>
+        <scale>1.0</scale>
+        <interpolate_x>false</interpolate_x>
+      </animation>
+
+      <animation name="walk">
+        <filename>walk.dae</filename>
+        <scale>1.0</scale>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+
+      <animation name="sitting">
+        <filename>sitting.dae</filename>
+        <scale>1.0</scale>
+      </animation>
+
+      <animation name="stand_up">
+        <filename>stand_up.dae</filename>
+        <scale>1.0</scale>
+      </animation>
+
+      <script> <!-- walk around the waiting room -->
+
+        <!-- stand in place -->
+        <trajectory id="0" type="sitting">
+          <waypoint>
+            <time>0</time>
+            <pose frame=''>0.1 -6.0 0 0 -0 0</pose>
+          </waypoint>
+
+          <waypoint>
+            <time>5</time>
+            <pose frame=''>0 .1-6.0 0 0 -0 0</pose>
           </waypoint>
         </trajectory>
         
