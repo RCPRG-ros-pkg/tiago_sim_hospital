@@ -23351,7 +23351,12 @@
     </model>
 
     <!-- ============================= ACTOR =============================== -->
-    <actor name="Greg"> <!-- green -->
+        <!-- <filename>moonwalk.dae</filename>  --> <!-- red/blue -->
+        <!-- <filename>stand.dae</filename> --> <!-- green/blue -->
+        <!-- <filename>talk_b.dae</filename> --> <!-- blue/gray -->
+        <!-- <filename>model://actors/nurse.dae</filename> --> <!-- white/white -->
+
+    <actor name="Petitioner Pete">
       <skin>
         <filename>stand.dae</filename>
         <scale>1.0</scale>
@@ -23450,9 +23455,9 @@
 
     </actor>
 
-    <actor name="Ruby"> <!-- red -->
+    <actor name="Nurse Norman"> 
       <skin>
-        <filename>moonwalk.dae</filename>
+        <filename>model://actors/nurse.dae</filename>
         <scale>1.0</scale>
       </skin>
 
@@ -23719,9 +23724,9 @@
 
     </actor>
 
-    <actor name="Barb"> <!-- blue -->
+    <actor name="Grandma Gladys"> 
       <skin>
-        <filename>talk_b.dae</filename>
+        <filename>model://actors/pink.dae</filename>
         <scale>1.0</scale>
       </skin>
 
@@ -23753,12 +23758,12 @@
         <trajectory id="0" type="sitting">
           <waypoint>
             <time>0</time>
-            <pose frame=''>0.1 -6.0 0 0 -0 0</pose>
+            <pose>0.1 -6.0 0 0 -0 0</pose>
           </waypoint>
 
           <waypoint>
             <time>5</time>
-            <pose frame=''>0 .1-6.0 0 0 -0 0</pose>
+            <pose>0.1 -6.0 0 0 -0 0</pose>
           </waypoint>
         </trajectory>
         
