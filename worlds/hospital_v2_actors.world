@@ -23752,9 +23752,9 @@
         <scale>1.0</scale>
       </animation>
 
-      <script> <!-- walk around the waiting room -->
+      <script> <!-- sit in s1 -->
 
-        <!-- stand in place -->
+        <!-- sit in place -->
         <trajectory id="0" type="sitting">
           <waypoint>
             <time>0</time>
