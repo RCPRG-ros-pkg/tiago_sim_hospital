@@ -52,3 +52,15 @@ play_motion:
         name: middle
         usage: tiago_sim_hospital
         description: 'Go to middle position on all joints.'
+
+    prepare_grasp_cup:
+      joints: [torso_lift_joint, arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint]
+      points:
+      - positions: [0.35, 1.57, 0.7, 0.0, 1.57, -1.57, -0.87, 0.0]
+        time_from_start: 10.0
+      # - positions: [0.3, 1.57, 0.7, 0.0, 1.57, -1.57, -0.87, 0.0]
+        # time_from_start: 10.0
+      meta:
+        name: prepare_grasp_cup
+        usage: tiago_sim_hospital
+        description: 'Prepare to grab medicine cup.'
