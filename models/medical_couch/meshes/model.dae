@@ -18,6 +18,9 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">0.8 0.8 0.8 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">0.8 0.8 0.8 1</color>
             </diffuse>
@@ -35,6 +38,9 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">0.03814043 0.1197827 0.1901777 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">0.03814043 0.1197827 0.1901777 1</color>
             </diffuse>

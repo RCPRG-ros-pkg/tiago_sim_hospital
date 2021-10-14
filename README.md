@@ -11,7 +11,7 @@ cd $HOME/tiago_public_ws
 mkdir -p src/rcprg/tiago_sim_hospital
 git clone https://github.com/RCPRG-ros-pkg/tiago_sim_hospital.git src/rcprg/tiago_sim_hospital
 bash src/rcprg/tiago_sim_hospital/tiago_sim_hospital_packages.sh
-rosinstall src /opt/ros/melodic src/rcprg/tiago_sim_hospital/tiago_sim_hospotal_repositories.rosinstall
+rosinstall src /opt/ros/melodic src/rcprg/tiago_sim_hospital/tiago_sim_hospital_repositories.rosinstall
 source /opt/ros/melodic/setup.bash
 catkin build -DCATKIN_ENABLE_TESTING=0
 source $HOME/tiago_public_ws/devel/setup.bash

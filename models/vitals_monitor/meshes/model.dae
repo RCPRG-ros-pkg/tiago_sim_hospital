@@ -18,6 +18,9 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">0.009018231 0.009018231 0.009018231 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">0.009018231 0.009018231 0.009018231 1</color>
             </diffuse>
@@ -35,6 +38,9 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">0.4385441 0.4385441 0.4385441 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">0.4385441 0.4385441 0.4385441 1</color>
             </diffuse>
@@ -52,6 +58,9 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">1 1 1 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">1 1 1 1</color>
             </diffuse>
@@ -69,6 +78,9 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">0 0 0 1</color>
             </diffuse>
@@ -86,6 +98,9 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">1 0.1602083 0.1319368 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">1 0.1602083 0.1319368 1</color>
             </diffuse>
