@@ -2,6 +2,7 @@
 <launch>
   <arg name="robot"  default="titanium"/>
   <arg name="world_version" default="2"/>
+  <arg name="tuck_arm" default="false"/>
   
   <!-- custom pre-recorded motions -->
   <rosparam file="$(find tiago_sim_hospital)/config/motions/tiago_motions_$(arg robot).yaml" command="load" />
@@ -9,6 +10,7 @@
   <include file="$(find tiago_sim_hospital)/launch/tiago_navigation_hospital.launch">
     <arg name="robot" value="$(arg robot)"/>
     <arg name="world_version" value="$(arg world_version)"/>
+    <arg name="tuck_arm" value="$(arg tuck_arm)"/>
   </include>
 
   <!-- spawn medicine cups -->
