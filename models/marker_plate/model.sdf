@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<sdf version="1.0">
+  <model name="marker_plate">
+    <static>true</static>
+    <link name="marker_plate">
+      <collision name="marker_plate">
+        <pose>0 0 .06 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>
+              0.001 .12 .12
+            </size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="marker_plate_marker">
+        <pose>0 0 .06 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>
+              0.001 .1 .1
+            </size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://marker_plate/materials/scripts</uri>
+            <uri>model://marker_plate/materials/textures</uri>
+            <name>Aruco/582</name>
+          </script>
+        </material>
+      </visual>
+
+      <visual name="marker_plate_border">
+        <pose>0 0 .06 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>
+              0.0009 .12 .12
+            </size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/White</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

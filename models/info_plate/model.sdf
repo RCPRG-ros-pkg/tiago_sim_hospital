@@ -15,11 +15,11 @@
       </collision>
 
       <visual name="info_plate_upper">
-        <pose>0 0 .2485 0 0 0</pose>
+        <pose>0 0 .2535 0 0 0</pose>
         <geometry>
           <box>
             <size>
-              0.001 .21 .097
+              0.001 .21 .087
             </size>
           </box>
         </geometry>

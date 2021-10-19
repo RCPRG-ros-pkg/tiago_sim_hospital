@@ -1,0 +1,14 @@
+material Aruco/582
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture aruco-582.png
+      }
+    }
+  }
+}
