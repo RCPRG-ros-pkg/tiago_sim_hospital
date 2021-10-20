@@ -44,6 +44,11 @@ project(tiago_sim_hospital)
   add_dependencies(follow_marker ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
   target_link_libraries(follow_marker ${catkin_LIBRARIES})
 
+  add_executable(scenario_1 src/scenario_1.cpp)
+  add_dependencies(scenario_1 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+  target_link_libraries(scenario_1 ${catkin_LIBRARIES})
+
+
 install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
   PATTERN ".svn" EXCLUDE)

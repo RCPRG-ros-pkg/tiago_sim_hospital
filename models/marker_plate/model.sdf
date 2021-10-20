@@ -4,7 +4,7 @@
     <static>true</static>
     <link name="marker_plate">
       <collision name="marker_plate">
-        <pose>0 0 .06 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>
@@ -15,7 +15,7 @@
       </collision>
 
       <visual name="marker_plate_marker">
-        <pose>0 0 .06 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>
@@ -33,7 +33,7 @@
       </visual>
 
       <visual name="marker_plate_border">
-        <pose>0 0 .06 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>
