@@ -80,7 +80,7 @@ class ArmFollowMarkerNode{
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "arm_follow_marker");
-  ros::AsyncSpinner spinner(2);
+  ros::AsyncSpinner spinner(1);
   ArmFollowMarkerNode node;
   spinner.start();
   ros::waitForShutdown();

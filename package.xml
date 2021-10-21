@@ -13,11 +13,13 @@
 
   <exec_depend>tiago_2dnav_gazebo</exec_depend>
   <exec_depend>tiago_sim_integration</exec_depend>
-
   <exec_depend>gazebo_ros</exec_depend>
+
   <depend>geometry_msgs</depend>
   <depend>roscpp</depend>
   <depend>moveit_ros_planning_interface</depend>
+  <depend>play_motion_msgs</depend>
+
   <export>
     <gazebo_ros gazebo_model_path="${prefix}/models"/>
     <gazebo_ros gazebo_media_path="${prefix}/models"/>

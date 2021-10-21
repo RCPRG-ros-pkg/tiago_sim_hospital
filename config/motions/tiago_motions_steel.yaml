@@ -1,0 +1,49 @@
+play_motion:
+  controllers: [arm_controller, head_controller, torso_controller, gripper_controller]
+
+  # joint constraints:
+  # torso_lift_joint: [0, 0.35]
+  # head_1_joint: [-1.24, 1.24]
+  # head_2_joint: [-0.98, 0.72]
+  # arm_1_joint: [0.07, 2.68]
+  # arm_2_joint: [-1.5, 1.02]
+  # arm_3_joint: [-3.46, 1.5]
+  # arm_4_joint: [-0.32, 2.29]
+  # arm_5_joint: [-2.07, 2.07]
+  # arm_6_joint: [-1.39, 1.39]
+  # arm_7_joint: [-2.07,2.07]
+  # gripper_left_finger_joint: [0.0, 0.4]
+  # gripper_right_finger_joint: [0.0, 0.4]
+
+  motions:
+    zero:
+      joints: [torso_lift_joint, head_1_joint, head_2_joint, arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, gripper_left_finger_joint, gripper_right_finger_joint]
+      points:
+      - positions: [0.0, 0.0, 0.0, 0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4]
+        time_from_start: 5.0
+      meta:
+        name: zero
+        usage: tiago_sim_hospital
+        description: 'Set all joints to initial position.'
+
+    zero_arm:
+      joints: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, gripper_left_finger_joint, gripper_right_finger_joint]
+      points:
+      - positions: [0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4]
+        time_from_start: 5.0
+      meta:
+        name: zero_arm
+        usage: tiago_sim_hospital
+        description: 'Set arm and gripper joints to initial position.'
+
+    arm_prepare_grab:
+      joints: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, gripper_left_finger_joint, gripper_right_finger_joint]
+      points:
+      - positions: [0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4]
+        time_from_start: 1.0
+      - positions: [0.20, 0.7, 0.0, 1.57, -1.57, -0.87, 0.0, 0.4, 0.4]
+        time_from_start: 2.0
+      meta:
+        name: arm_prepare_grab
+        usage: tiago_sim_hospital
+        description: 'Set arm and gripper joints to initial position.'

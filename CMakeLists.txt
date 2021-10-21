@@ -5,6 +5,7 @@ project(tiago_sim_hospital)
     moveit_ros_planning_interface
     roscpp
     geometry_msgs
+    play_motion_msgs
   # message_generation std_msgs sensor_msgs
   )
 
@@ -28,9 +29,17 @@ project(tiago_sim_hospital)
   )
 
   include_directories(
+    include
     SYSTEM
     ${catkin_INCLUDE_DIRS}
   )
+
+  add_library(nodes
+    src/nodes/DriveToPointNode.cpp
+    src/nodes/PerformMotionNode.cpp
+    src/nodes/ArmToMarkerNode.cpp
+  )
+  target_link_libraries(nodes ${catkin_LIBRARIES})
 
   # define executable using MyMessage1 etc.
   #add_executable(message_program src/main.cpp)
@@ -46,9 +55,11 @@ project(tiago_sim_hospital)
 
   add_executable(scenario_1 src/scenario_1.cpp)
   add_dependencies(scenario_1 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-  target_link_libraries(scenario_1 ${catkin_LIBRARIES})
+  target_link_libraries(scenario_1 nodes ${catkin_LIBRARIES})
 
-
+install(DIRECTORY include/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/include
+  PATTERN ".svn" EXCLUDE)
 install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
   PATTERN ".svn" EXCLUDE)
