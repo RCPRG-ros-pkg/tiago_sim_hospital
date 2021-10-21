@@ -35,7 +35,7 @@
   <!-- spawn medicine cups -->
   <arg name="medicine_cup_file" default="$(find tiago_sim_hospital)/models/medicine_cup/model.sdf"/>
   <node name="medicine_cup_spawner" pkg="gazebo_ros" type="spawn_model"
-        args="-x -4.75 -y -5 -z 0.85 -sdf -model medicine_cup -file $(arg medicine_cup_file)" respawn="false" output="screen" />
+        args="-x -4.75 -y -5 -z 0.86 -sdf -model medicine_cup -file $(arg medicine_cup_file)" respawn="false" output="screen" />
   <!-- spawn marker plate for cup -->
   <arg name="marker_plate_file" default="$(find tiago_sim_hospital)/models/marker_plate/model.sdf"/>
   <node name="marker_plate_spawner" pkg="gazebo_ros" type="spawn_model"

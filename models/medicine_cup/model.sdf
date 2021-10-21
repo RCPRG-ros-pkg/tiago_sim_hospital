@@ -4,9 +4,16 @@
     <static>false</static>
     <link name="medicine_cup">
       <inertial>
-        <mass value=".01" />
-        <inertia  ixx="0.00003" ixy="0.0"  ixz="0.0"  iyy="0.00003"  iyz="0.0"  izz="0.000036" />
+        <mass> 0.01 </mass>
         <!-- treated as infinitely thin rod with radius(r) and length(l) of 6cm, i_xx = m*(6*r^2+4*l^2)/12, i_yy = m*(6*r^2+4*l^2)/12, i_zz = m*r^2 -->
+        <inertia>  ixx="0.00003" ixy="0.0"  ixz="0.0"  iyy="0.00003"  iyz="0.0"  izz="0.000036" 
+          <ixx> 0.00003 </ixx>
+          <ixy> 0.0 </ixy>
+          <ixz> 0.0 </ixz>
+          <iyy> 0.00003 </iyy>
+          <iyz> 0.0 </iyz>
+          <izz> 0.000036 </izz>
+        </inertia>
       </inertial>
 
       <collision name="medicine_cup">
