@@ -43,5 +43,17 @@ int main(int argc, char** argv)
 	// grab cup
 	motionNode.performMotion("close_gripper");
 	task_rate.sleep();
+	// look forward
+	motionNode.performMotion("look_forward");
+	task_rate.sleep();
+	// drive to kitchen
+	geometry_msgs::PoseStamped pose_s1_drop_cup;
+	pose_s1_drop_cup.header.frame_id = "map";
+	pose_s1_drop_cup.pose.position.x = 9;
+	pose_s1_drop_cup.pose.position.y = -2;
+	pose_s1_drop_cup.pose.orientation.z = 1;
+	pose_s1_drop_cup.pose.orientation.w = -0.5;
+	navigationNode.driveToPoint(pose_s1_drop_cup);
+	task_rate.sleep();
 	spinner.stop();
 }

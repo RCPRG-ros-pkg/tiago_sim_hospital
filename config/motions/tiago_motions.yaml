@@ -27,3 +27,13 @@ play_motion:
         name: look_down
         usage: tiago_sim_hospital
         description: 'Bow your head forward.'
+
+    look_forward:
+      joints: [head_1_joint, head_2_joint]
+      points:
+      - positions: [0, 0]
+        time_from_start: 1.0
+      meta:
+        name: look_forward
+        usage: tiago_sim_hospital
+        description: 'Look forward.'
