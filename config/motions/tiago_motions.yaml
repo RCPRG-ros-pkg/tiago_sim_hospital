@@ -37,3 +37,33 @@ play_motion:
         name: look_forward
         usage: tiago_sim_hospital
         description: 'Look forward.'
+
+    center_arm:
+      joints: [arm_1_joint]
+      points:
+      - positions: [1.57]
+        time_from_start: 1.0
+      meta:
+        name: center_arm
+        usage: tiago_sim_hospital
+        description: 'Move first arm joint to the center of the robot (1.57).'
+
+    level_arm:
+      joints: [arm_2_joint]
+      points:
+      - positions: [0]
+        time_from_start: 1.0
+      meta:
+        name: level_arm
+        usage: tiago_sim_hospital
+        description: 'Move second arm joint to horizontal position (0).'
+
+    arm_left:
+      joints: [arm_1_joint]
+      points:
+      - positions: [0.07]
+        time_from_start: 1.0
+      meta:
+        name: arm_left
+        usage: tiago_sim_hospital
+        description: 'Move first arm joint maximum to the left (0.07).'

@@ -46,11 +46,23 @@ int main(int argc, char** argv)
 	// look forward
 	motionNode.performMotion("look_forward");
 	task_rate.sleep();
-	// drive to kitchen
+	// rotate
+	geometry_msgs::PoseStamped pose_kitchen_look_door;
+	pose_kitchen_look_door.header.frame_id = "map";
+	pose_kitchen_look_door.pose.position.x = 4.1;
+	pose_kitchen_look_door.pose.position.y = -1;
+	pose_kitchen_look_door.pose.orientation.z = 1;
+	pose_kitchen_look_door.pose.orientation.w = 1;
+	navigationNode.driveToPoint(pose_kitchen_look_door);
+	task_rate.sleep();
+	// lower hand to make robot see
+	motionNode.performMotion("level_arm");
+	task_rate.sleep();
+	// drive to s1
 	geometry_msgs::PoseStamped pose_s1_drop_cup;
 	pose_s1_drop_cup.header.frame_id = "map";
-	pose_s1_drop_cup.pose.position.x = 9;
-	pose_s1_drop_cup.pose.position.y = -2;
+	pose_s1_drop_cup.pose.position.x = 9.2;
+	pose_s1_drop_cup.pose.position.y = -1.8;
 	pose_s1_drop_cup.pose.orientation.z = 1;
 	pose_s1_drop_cup.pose.orientation.w = -0.5;
 	navigationNode.driveToPoint(pose_s1_drop_cup);
