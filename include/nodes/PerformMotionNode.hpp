@@ -14,7 +14,7 @@ class PerformMotionNode {
 	    actionlib::SimpleActionClient<play_motion_msgs::PlayMotionAction> play_motion_client;
 	    actionlib::SimpleClientGoalState state;
     	play_motion_msgs::PlayMotionGoal goal;
-    	bool actionOk;
+    	int actionOk;
 	public:
 		PerformMotionNode();
 		void performMotion(std::string name);

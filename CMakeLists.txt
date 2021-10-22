@@ -37,7 +37,7 @@ project(tiago_sim_hospital)
   add_library(nodes
     src/nodes/DriveToPointNode.cpp
     src/nodes/PerformMotionNode.cpp
-    src/nodes/ArmToMarkerNode.cpp
+    src/nodes/ArmToPoseNode.cpp
   )
   target_link_libraries(nodes ${catkin_LIBRARIES})
 

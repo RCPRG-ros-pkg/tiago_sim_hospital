@@ -8,18 +8,21 @@
 // Marker tracking
 #include <tf/transform_broadcaster.h>
 
-class ArmToMarkerNode {
+class ArmToPoseNode {
 	private:
 	    ros::NodeHandle nh;
 	    ros::Subscriber marker_location_sub;
-	    geometry_msgs::PoseStamped goal_pose;
+	    geometry_msgs::PoseStamped goal_pose, marker_pose;
 	    moveit::planning_interface::MoveGroupInterface group_arm_torso;
 	    moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 	    moveit::planning_interface::MoveItErrorCode exec_success;
 	    bool plan_success;
 	    unsigned int success_tries;
 		void getMarkerPosition(const geometry_msgs::PoseStamped& msg);
+	    void reachGoalPose();
 	public:
-		ArmToMarkerNode();
+		ArmToPoseNode();
 	    void reachPoseRelativeToMarker(float x, float y, float z, float R, float P, float Y);
+	    geometry_msgs::PoseStamped getLastGoalPose();
+	    void reachSetPose(geometry_msgs::PoseStamped goal);
 };

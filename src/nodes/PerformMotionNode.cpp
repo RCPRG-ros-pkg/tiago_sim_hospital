@@ -8,14 +8,14 @@ PerformMotionNode::PerformMotionNode(): nh("~"), play_motion_client("/play_motio
 
 void PerformMotionNode::performMotion(std::string name) {
 	goal.motion_name = name;
-	actionOk = false;
-	while (!actionOk){
+	actionOk = 0;
+	while (actionOk != 1){
 		ROS_INFO_STREAM("Trying to perform motion: " << name);
 		play_motion_client.sendGoal(goal);
 		actionOk = play_motion_client.waitForResult(ros::Duration(60.0));
 
 		state = play_motion_client.getState();
-		if ( actionOk )
+		if ( actionOk == 1 )
 		{
 			ROS_INFO_STREAM("Action finished successfully with state: " << state.toString());
 		}
