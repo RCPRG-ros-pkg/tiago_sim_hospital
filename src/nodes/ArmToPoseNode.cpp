@@ -1,6 +1,7 @@
 #include <nodes/ArmToPoseNode.hpp>
 
-ArmToPoseNode::ArmToPoseNode(): nh("~"), group_arm_torso("arm_torso") {
+// ArmToPoseNode::ArmToPoseNode(): nh("~"), group_arm_torso("arm_torso") {
+ArmToPoseNode::ArmToPoseNode(): nh("~"), group_arm_torso("arm") {
 	group_arm_torso.setPlannerId("SBLkConfigDefault");
 	group_arm_torso.setPoseReferenceFrame("base_footprint");
 	group_arm_torso.setMaxVelocityScalingFactor(1.0);
