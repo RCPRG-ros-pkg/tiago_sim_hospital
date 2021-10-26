@@ -100,22 +100,27 @@ int main(int argc, char** argv)
 	motionNode.performMotion("look_forward");
 	task_rate.sleep();
 	// s1 rotate door
-	location_s1.pose.orientation.w = 1;
+	location_s1.pose.orientation.w = 0;
 	navigationNode.driveToPoint(location_s1);
 	task_rate.sleep();
-	// lower hand to make robot see
-	pose_hand_with_cup = armPoseNode.getLastGoalPose();
-	pose_hand_with_cup.pose.position.x = 0.5;
-	pose_hand_with_cup.pose.position.z -= 0.3;
-	armPoseNode.reachSetPose(pose_hand_with_cup);
+	// arm home
+	motionNode.performMotion("fast_home");
 	task_rate.sleep();
 	// drive to dispose place
-	location_kitchen.pose.position.y = -2.75;
-	location_kitchen.pose.orientation.w = 0;
+	location_kitchen.pose.position.y = -2.4;
+	location_kitchen.pose.orientation.w = -0.5;
+	navigationNode.driveToPoint(location_kitchen);
+	task_rate.sleep();
 	// hand up
 	pose_hand_with_cup = armPoseNode.getLastGoalPose();
+	pose_hand_with_cup.pose.position.x = 0.5;
 	pose_hand_with_cup.pose.position.z += 0.3;
 	armPoseNode.reachSetPose(pose_hand_with_cup);
+	task_rate.sleep();
+	// rotate to dispose place
+	location_kitchen.pose.position.y = -2.75;
+	location_kitchen.pose.orientation.w = -0.75;
+	navigationNode.driveToPoint(location_kitchen);
 	task_rate.sleep();
 	// hand forward
 	pose_hand_with_cup = armPoseNode.getLastGoalPose();
@@ -130,6 +135,7 @@ int main(int argc, char** argv)
 	task_rate.sleep();
 	// go back home
 	geometry_msgs::PoseStamped location_lobby;
+	location_lobby.header.frame_id = "map";
 	location_lobby.pose.orientation.w = 1;
 	navigationNode.driveToPoint(location_lobby);
 	task_rate.sleep();
