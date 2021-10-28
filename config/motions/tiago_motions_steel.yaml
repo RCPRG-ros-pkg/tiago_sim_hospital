@@ -37,13 +37,29 @@ play_motion:
         description: 'Set arm and gripper joints to initial position.'
 
     arm_prepare_grab:
-      joints: [arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, gripper_left_finger_joint, gripper_right_finger_joint]
+      joints: [torso_lift_joint, arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, gripper_left_finger_joint, gripper_right_finger_joint]
       points:
-      - positions: [0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4]
+      - positions: [0.35, 0.07, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.4]
         time_from_start: 1.0
-      - positions: [0.20, 0.7, 0.0, 1.57, -1.57, -0.87, 0.0, 0.4, 0.4]
+      - positions: [0.35, 0.20, 0.9, 0.0, 1.57, -1.57, -0.87, 0.0, 0.4, 0.4]
         time_from_start: 2.0
+      - positions: [0.35, 1, 0.9, 0.0, 1.57, -1.57, -0.87, 0.0, 0.4, 0.4]
+        time_from_start: 3.0
       meta:
         name: arm_prepare_grab
         usage: tiago_sim_hospital
         description: 'Set arm and gripper joints to initial position.'
+
+    drop_item_in_front:
+      joints: [torso_lift_joint, arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, gripper_left_finger_joint, gripper_right_finger_joint]
+      points:
+      - positions: [0.35, 1.57, 0, -3.14, 0, 0, 0, 1.57, 0, 0]
+        time_from_start: 1.0
+      - positions: [0.35, 1.57, 0, -3.14, 0, 0, 0, 1.57, 0.4, 0.4]
+        time_from_start: 2.0
+      - positions: [0.35, 0.07, 0, -3.14, 1.57, 0, 0, 1.57, 0.4, 0.4]
+        time_from_start: 3.0
+      meta:
+        name: drop_item_in_front
+        usage: tiago_sim_hospital
+        description: 'Reach forward as far as possible, drop held item and retireve arm.'

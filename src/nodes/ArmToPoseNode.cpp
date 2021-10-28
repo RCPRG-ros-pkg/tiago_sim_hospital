@@ -36,6 +36,18 @@ geometry_msgs::PoseStamped ArmToPoseNode::getLastGoalPose() {
 	return goal_pose;
 }
 
+void ArmToPoseNode::reachSetPose(float x = 0, float y = 0, float z = 0, float R = 0, float P = 0, float Y = 0){
+	goal_pose.pose.position.x = x;
+	goal_pose.pose.position.y = y;
+	goal_pose.pose.position.z = z;
+	goal_pose.pose.orientation = tf::createQuaternionMsgFromRollPitchYaw(R, P, Y);
+
+	ROS_INFO("Goal for arm (XYZ,RPY):\t%f\t%f\t%f,\t%f\t%f\t%f", goal_pose.pose.position.x, goal_pose.pose.position.y, goal_pose.pose.position.z, R, P, Y);
+
+	reachGoalPose();
+
+}
+
 void ArmToPoseNode::reachSetPose(geometry_msgs::PoseStamped goal){
 	goal_pose = goal;
 	ROS_INFO("Goal for arm(XYZ,QxQyQzQw):\t%f\t%f\t%f,\t%f\t%f\t%f\t%f", 

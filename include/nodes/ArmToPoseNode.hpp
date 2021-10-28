@@ -25,4 +25,5 @@ class ArmToPoseNode {
 	    void reachPoseRelativeToMarker(float x, float y, float z, float R, float P, float Y);
 	    geometry_msgs::PoseStamped getLastGoalPose();
 	    void reachSetPose(geometry_msgs::PoseStamped goal);
+	    void reachSetPose(float x, float y, float z, float R, float P, float Y);
 };
