@@ -3,7 +3,7 @@
   <arg name="robot"  default="steel"/>
   <arg name="world_version" default="2"/>
   <arg name="tuck_arm" default="false"/>
-  <arg name="gzpose"   default="-x -8.0 -y -4.0 -z 0 -R 0.0 -P 0.0 -Y 0.0"/>
+  <arg name="gzpose"   default="-x -4.5 -y -4.0 -z 0 -R 0.0 -P 0.0 -Y 0.0"/>
   
   <!-- custom pre-recorded motions -->
   <rosparam file="$(find tiago_sim_hospital)/config/motions/tiago_motions.yaml" command="load" />

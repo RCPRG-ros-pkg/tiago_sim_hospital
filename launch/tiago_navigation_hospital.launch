@@ -11,13 +11,13 @@
   <arg name="recording" default="false"/>
   <arg name="extra_gazebo_args" default="--verbose"/>
   <arg name="localization"   default="amcl"/>
-  <arg name="gzpose"   default="-x -8.0 -y -4.0 -z 0 -R 0.0 -P 0.0 -Y 0.0"/>
+  <arg name="gzpose"   default="-x -4.5 -y -4.0 -z 0 -R 0.0 -P 0.0 -Y 0.0"/>
   <arg name="tuck_arm"  default="true"/>
   <arg name="world_version" default="2"/>
   <arg name="world" default="hospital_v$(arg world_version)"/>
   <arg name="map_localization"   default="$(find tiago_sim_hospital)/maps/v$(arg world_version)/hospital_sim_localization"/>
   <arg name="map_planning"   default="$(find tiago_sim_hospital)/maps/v$(arg world_version)/hospital_sim_planning"/>
-  <!-- <arg name="world_map_tf"          default="-8.0 -4.0 0 0 0 0 "/> -->
+  <arg name="world_map_tf"          default="-8.0 -4.0 0 0 0 0 "/>
 
   <!-- Due to some bug in tiago simulation (tiago moves very slowly when it should be standing still),
        the amcl localization must be triggered periodically, and some noise must be added to particles. -->

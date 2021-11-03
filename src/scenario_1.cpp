@@ -15,31 +15,34 @@ int main(int argc, char** argv)
 	PerformMotionNode motionNode;
 	DriveToPointNode navigationNode;
 	ArmToPoseNode armPoseNode;
-	// geometry_msgs::PoseStamped pose_hand_with_cup;
 	// kitchen location
 	geometry_msgs::PoseStamped location_kitchen;
 	location_kitchen.header.frame_id = "map";
-	location_kitchen.pose.position.x = 4.1;
+	location_kitchen.pose.position.x = 0.6;
 	location_kitchen.pose.position.y = -1;
 	location_kitchen.pose.orientation.z = 1;
 	// s1 location
 	geometry_msgs::PoseStamped location_s1;
 	location_s1.header.frame_id = "map";
-	location_s1.pose.position.x = 9.15;
+	location_s1.pose.position.x = 5.71;
 	location_s1.pose.position.y = -1.85;
 	location_s1.pose.orientation.z = 1;
 	location_s1.pose.orientation.w = -0.5;
 	// charger location
 	geometry_msgs::PoseStamped location_charger;
 	location_charger.header.frame_id = "map";
-	location_charger.pose.position.x = 3.25;
-	location_charger.pose.position.y = -0.25;
+	location_charger.pose.position.x = 0;
+	location_charger.pose.position.y = 0;
 	location_charger.pose.orientation.w = 1;
 	// start
 	spinner.start();
 	task_rate.sleep();
 	// fast_home
 	motionNode.performMotion("fast_home");
+	task_rate.sleep();
+	armPoseNode.reachSetPose(0.425, 0.15, 1, 1.57, 0, 3.05);
+	task_rate.sleep();
+	motionNode.performMotion("open_gripper");
 	task_rate.sleep();
 	// drive to kitchen
 	navigationNode.driveToPoint(location_kitchen);
@@ -52,8 +55,6 @@ int main(int argc, char** argv)
 	task_rate.sleep();
 	armPoseNode.reachSetPose(0.6, 0.2, 1, 1.57, 0, 0);
 	task_rate.sleep();
-	// motionNode.performMotion("arm_prepare_grab");
-	// task_rate.sleep();
 	// get arm close to marker location
 	armPoseNode.reachPoseRelativeToMarker(-0.2, 0, 0.2, 1.57, 0, 0);
 	task_rate.sleep();
@@ -71,10 +72,6 @@ int main(int argc, char** argv)
 	// look forward
 	motionNode.performMotion("look_forward");
 	task_rate.sleep();
-	// // rotate
-	// location_kitchen.pose.orientation.w = 1;
-	// navigationNode.driveToPoint(location_kitchen);
-	// task_rate.sleep();
 	// rotate hand to shelter cup
 	armPoseNode.reachSetPose(0.6, 0.2, 1, 1.57, 0, 1.57);
 	task_rate.sleep();
@@ -117,33 +114,13 @@ int main(int argc, char** argv)
 	// look forward
 	motionNode.performMotion("look_forward");
 	task_rate.sleep();
-	// // s1 rotate door
-	// location_s1.pose.orientation.w = 0;
-	// navigationNode.driveToPoint(location_s1);
-	// task_rate.sleep();
 	// rotate hand to shelter cup
 	armPoseNode.reachSetPose(0.425, 0.15, 1, 1.57, 0, 3.05);
 	task_rate.sleep();
-	// // lower hand to make robot see
-	// armPoseNode.reachPoseRelativeToMarker(-0.35, 0.1, 0.2, 1.57, 0, 2.5);
-	// task_rate.sleep();
-	// // arm home
-	// motionNode.performMotion("fast_home");
-	// task_rate.sleep();
 	// drive to dispose place
 	location_kitchen.pose.position.y = -2.4;
 	location_kitchen.pose.orientation.w = -0.25;
 	navigationNode.driveToPoint(location_kitchen);
-	task_rate.sleep();
-	// hand up
-	// pose_hand_with_cup = armPoseNode.getLastGoalPose();
-	// // pose_hand_with_cup.pose.position.x = 0.5;
-	// pose_hand_with_cup.pose.position.z += 0.3;
-	// armPoseNode.reachSetPose(pose_hand_with_cup);
-	// task_rate.sleep();
-	// // rotate to dispose place
-	// location_kitchen.pose.orientation.w = -0.25;
-	// navigationNode.driveToPoint(location_kitchen);
 	task_rate.sleep();
 	// drop cup
 	motionNode.performMotion("drop_item_in_front");
@@ -152,6 +129,7 @@ int main(int argc, char** argv)
 	motionNode.performMotion("fast_home");
 	task_rate.sleep();
 	// go back home
+	location_charger.pose.position.y = -0.2;
 	navigationNode.driveToPoint(location_charger);
 	task_rate.sleep();
 	// end node execution

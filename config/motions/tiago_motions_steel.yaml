@@ -53,6 +53,8 @@ play_motion:
     drop_item_in_front:
       joints: [torso_lift_joint, arm_1_joint, arm_2_joint, arm_3_joint, arm_4_joint, arm_5_joint, arm_6_joint, arm_7_joint, gripper_left_finger_joint, gripper_right_finger_joint]
       points:
+      - positions: [0.35, 1.57, 0, -3.14, 1.57, 0, 0, 1.57, 0, 0]
+        time_from_start: 0.1
       - positions: [0.35, 1.57, 0, -3.14, 0, 0, 0, 1.57, 0, 0]
         time_from_start: 1.0
       - positions: [0.35, 1.57, 0, -3.14, 0, 0, 0, 1.57, 0.4, 0.4]
